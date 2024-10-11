@@ -112,7 +112,7 @@
                 <li class="menu-item active open">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                        <div data-i18n="Adviser">Adviser</div>
+                        <div data-i18n="New Users">New Users</div>
 
                     </a>
                     <ul class="menu-sub">
