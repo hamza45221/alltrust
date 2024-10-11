@@ -31,7 +31,6 @@ Route::get('/user-update',[\App\Http\Controllers\admin\UserController::class,'up
 Route::get('/user-delete',[\App\Http\Controllers\admin\UserController::class,'delete'])->name('user-delete');
 
 
-<<<<<<< HEAD
 Route::get('/ticket',[\App\Http\Controllers\admin\TicketController::class,'index'])->name('ticket');
 Route::post('/ticket-store',[\App\Http\Controllers\admin\TicketController::class,'store'])->name('ticket-store');
 Route::get('/ticket-update',[\App\Http\Controllers\admin\TicketController::class,'update'])->name('ticket-update');
@@ -45,13 +44,11 @@ Route::get('/support-delete',[\App\Http\Controllers\admin\SupportController::cla
 
 
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::get('/faq-view', [FaqController::class, 'indexView'])->name('faq.view');
 Route::post('/faq-store', [FaqController::class, 'store'])->name('faq-store');
 Route::post('/faq-update/{id}', [FaqController::class, 'update'])->name('faq-update');
 Route::get('/faq-delete/{id}', [FaqController::class, 'destroy'])->name('faq-delete');
 
-
-
-=======
 
 Route::get('/ticket', [\App\Http\Controllers\admin\TicketController::class, 'index'])->name('ticket');
 Route::post('/ticket-store', [\App\Http\Controllers\admin\TicketController::class, 'store'])->name('ticket-store');
@@ -61,6 +58,6 @@ Route::get('/ticket-delete/{id}', [\App\Http\Controllers\admin\TicketController:
 
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::post('/faq-store', [FaqController::class, 'store'])->name('faq-store');
-Route::post('/faq-update/{id}', [FaqController::class, 'update'])->name('faq-update'); // Changed to POST and included id
-Route::get('/faq-delete/{id}', [FaqController::class, 'destroy'])->name('faq-delete'); // Changed to GET and included id
->>>>>>> bd1de9720ea4249ba4c16abf8a096bb74d9c1192
+Route::post('/faq-update/{id}', [FaqController::class, 'update'])->name('faq-update');
+Route::get('/faq-delete/{id}', [FaqController::class, 'destroy'])->name('faq-delete');
+
