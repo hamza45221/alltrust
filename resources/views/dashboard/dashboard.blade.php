@@ -108,7 +108,7 @@
             <div class="menu-inner-shadow"></div>
 
             <ul class="menu-inner py-1">
-                <!-- Dashboards -->
+
                 <li class="menu-item active open">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons ti ti-smart-home"></i>
@@ -117,6 +117,22 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item active">
+                            <a href="index.html" class="menu-link">
+                                <div data-i18n="Users">New Users</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Dashboards -->
+                <li class="menu-item ">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                        <div data-i18n="Adviser">Adviser</div>
+
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item ">
                             <a href="index.html" class="menu-link">
                                 <div data-i18n="New Adviser">New Adviser</div>
                             </a>
@@ -273,7 +289,7 @@
                     </ul>
                 </li>
 
-               
+
 
             </ul>
         </aside>
@@ -457,7 +473,7 @@
 <!-- Vendors JS -->
 <script src="public/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 <script src="public/assets/vendor/libs/swiper/swiper.js"></script>
-<script src="public/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+{{--<script src="public/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>--}}
 
 <!-- Main JS -->
 <script src="public/assets/js/main.js"></script>

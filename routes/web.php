@@ -23,3 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/dashboard', [\App\Http\Controllers\admin\AdminController::class, 'index'])->name('dashboard');
 
+Route::get('/user',[\App\Http\Controllers\admin\UserController::class,'index'])->name('user');
+Route::get('/user-store',[\App\Http\Controllers\admin\UserController::class,'store'])->name('user-store');
+Route::get('/user-update',[\App\Http\Controllers\admin\UserController::class,'update'])->name('user-update');
+Route::get('/user-delete',[\App\Http\Controllers\admin\UserController::class,'delete'])->name('user-delete');
+
