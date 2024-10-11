@@ -36,3 +36,9 @@ Route::get('/faq-update',[\App\Http\Controllers\admin\FaqController::class,'upda
 Route::get('/faq-delete',[\App\Http\Controllers\admin\FaqController::class,'delete'])->name('faq-delete');
 
 
+Route::get('/ticket',[\App\Http\Controllers\admin\TicketController::class,'index'])->name('ticket');
+Route::post('/ticket-store',[\App\Http\Controllers\admin\TicketController::class,'store'])->name('ticket-store');
+Route::get('/ticket-update',[\App\Http\Controllers\admin\TicketController::class,'update'])->name('ticket-update');
+Route::get('/ticket-delete',[\App\Http\Controllers\admin\TicketController::class,'delete'])->name('ticket-delete');
+
+

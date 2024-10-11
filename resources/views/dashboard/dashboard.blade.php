@@ -241,12 +241,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                            <a href="{{ route('ticket') }}" class="menu-link" target="_blank">
                                 <div data-i18n="Tickets">Tickets</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                            <a href="" class="menu-link" target="_blank">
                                 <div data-i18n="Support">Support</div>
                             </a>
                         </li>
