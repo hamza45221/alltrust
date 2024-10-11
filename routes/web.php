@@ -2,7 +2,7 @@
 
 // use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\admin\FaqController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,9 +31,8 @@ Route::get('/user-update',[\App\Http\Controllers\admin\UserController::class,'up
 Route::get('/user-delete',[\App\Http\Controllers\admin\UserController::class,'delete'])->name('user-delete');
 
 
-Route::get('/faq',[\App\Http\Controllers\admin\FaqController::class,'index'])->name('faq');
-Route::post('/faq-store',[\App\Http\Controllers\admin\FaqController::class,'store'])->name('faq-store');
-Route::get('/faq-update',[\App\Http\Controllers\admin\FaqController::class,'update'])->name('faq-update');
-Route::get('/faq-delete',[\App\Http\Controllers\admin\FaqController::class,'delete'])->name('faq-delete');
 
-
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::post('/faq-store', [FaqController::class, 'store'])->name('faq-store');
+Route::post('/faq-update/{id}', [FaqController::class, 'update'])->name('faq-update'); // Changed to POST and included id
+Route::get('/faq-delete/{id}', [FaqController::class, 'destroy'])->name('faq-delete'); // Changed to GET and included id
