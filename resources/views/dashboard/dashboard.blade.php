@@ -241,17 +241,17 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{ route('ticket') }}" class="menu-link" target="_blank">
+                            <a href="{{ route('ticket') }}" class="menu-link">
                                 <div data-i18n="Tickets">Tickets</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="" class="menu-link" target="_blank">
+                            <a  href="{{ route('support') }}" class="menu-link" >
                                 <div data-i18n="Support">Support</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{ route('faq') }}" class="menu-link" target="_blank">
+                            <a href="{{ route('faq') }}" class="menu-link" >
                                 <div data-i18n="FAQ">FAQ</div>
                             </a>
                         </li>
@@ -281,12 +281,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                            <a href="../html/front-pages/landing-page.html" class="menu-link">
                                 <div data-i18n="Adviser Application">Adviser Application</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="../html/front-pages/pricing-page.html" class="menu-link" target="_blank">
+                            <a href="../html/front-pages/pricing-page.html" class="menu-link" >
                                 <div data-i18n="Member Application">Member Application</div>
                             </a>
                         </li>
