@@ -182,38 +182,94 @@
                     </ul>
                 </li>
 
-                <!-- Front Pages -->
+                <!-- Management -->
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons ti ti-files"></i>
-                        <div data-i18n="Front Pages">Front Pages</div>
+                        <div data-i18n="Management">Management</div>
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
                             <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
-                                <div data-i18n="Landing">Landing</div>
+                                <div data-i18n="Leads">Leads</div>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="../html/front-pages/pricing-page.html" class="menu-link" target="_blank">
-                                <div data-i18n="Pricing">Pricing</div>
+                                <div data-i18n="User Management">User Management</div>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="../html/front-pages/payment-page.html" class="menu-link" target="_blank">
-                                <div data-i18n="Payment">Payment</div>
+                                <div data-i18n="DMS">DMS</div>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="../html/front-pages/checkout-page.html" class="menu-link" target="_blank">
-                                <div data-i18n="Checkout">Checkout</div>
+                                <div data-i18n="Reports">Reports</div>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="../html/front-pages/help-center-landing.html" class="menu-link" target="_blank">
-                                <div data-i18n="Help Center">Help Center</div>
+                                <div data-i18n="WorkFLow">WorkFLow</div>
                             </a>
                         </li>
+                    </ul>
+                </li>
+
+                <!-- Support -->
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ti ti-files"></i>
+                        <div data-i18n="Support">Support</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                                <div data-i18n="Tickets">Tickets</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="../html/front-pages/pricing-page.html" class="menu-link" target="_blank">
+                                <div data-i18n="FQA">FQA</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Marketing Management -->
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ti ti-files"></i>
+                        <div data-i18n="Marketing Management">Marketing Management</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                                <div data-i18n="Communications">Communications</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Adviser Application -->
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ti ti-files"></i>
+                        <div data-i18n="Adviser Application">Adviser Application</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                                <div data-i18n="Adviser Application">Adviser Application</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="../html/front-pages/pricing-page.html" class="menu-link" target="_blank">
+                                <div data-i18n="Member Application">Member Application</div>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 
