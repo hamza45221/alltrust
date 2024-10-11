@@ -273,7 +273,7 @@
                     </ul>
                 </li>
 
-               
+
 
             </ul>
         </aside>
@@ -378,12 +378,16 @@
                                     </a>
                                 </li>
 
-                                    <div class="d-grid px-2 pt-2 pb-1">
-                                        <a class="btn btn-sm btn-danger d-flex" href="auth-login-cover.html" target="_blank">
-                                            <small class="align-middle">Logout</small>
-                                            <i class="ti ti-logout ms-2 ti-14px"></i>
-                                        </a>
-                                    </div>
+                                <div class="d-grid px-2 pt-2 pb-1">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <button class="btn btn-sm btn-danger d-flex" type="button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <small class="align-middle">Logout</small>
+                                        <i class="ti ti-logout ms-2 ti-14px"></i>
+                                    </button>
+                                </div>
+
                                 </li>
                             </ul>
                         </li>
