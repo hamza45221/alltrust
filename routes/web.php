@@ -26,7 +26,14 @@ Route::get('/dashboard', [\App\Http\Controllers\admin\AdminController::class, 'i
 
 
 Route::get('/user',[\App\Http\Controllers\admin\UserController::class,'index'])->name('user');
-Route::get('/user-store',[\App\Http\Controllers\admin\UserController::class,'store'])->name('user-store');
+Route::post('/user-store',[\App\Http\Controllers\admin\UserController::class,'store'])->name('user-store');
 Route::get('/user-update',[\App\Http\Controllers\admin\UserController::class,'update'])->name('user-update');
 Route::get('/user-delete',[\App\Http\Controllers\admin\UserController::class,'delete'])->name('user-delete');
+
+
+Route::get('/faq',[\App\Http\Controllers\admin\FaqController::class,'index'])->name('faq');
+Route::post('/faq-store',[\App\Http\Controllers\admin\FaqController::class,'store'])->name('faq-store');
+Route::get('/faq-update',[\App\Http\Controllers\admin\FaqController::class,'update'])->name('faq-update');
+Route::get('/faq-delete',[\App\Http\Controllers\admin\FaqController::class,'delete'])->name('faq-delete');
+
 
