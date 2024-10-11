@@ -64,15 +64,12 @@
                             <div class="col mb-0">
                                 <label for="role" class="form-label">Role</label>
                                 <select name="role" id="role" class="form-control">
-                                    <option value="super_admin">Super Administrator</option>
-                                    <option value="admin">Administrator</option>
-                                    <option value="taxi_operator">Taxi Operator</option>
-                                    <option value="driver">Driver</option>
-                                    <option value="driver_assistant">Driver Assistant</option>
-                                    <option value="rank_marshal">Rank Marshal</option>
-                                    <option value="route_patrol">Route Patrol Officer</option>
-                                    <option value="hlokomela">Law Enforcement (Hlokomela)</option>
-                                </select>
+                                    <option value="super_admin"> Admin</option>
+                                    <option value="admin"> Employee</option>
+                                    <option value="taxi_operator"> Advisor Firm Admin</option>
+                                    <option value="driver"> advisor</option>
+                                    <option value="driver_assistant"> Member</option>
+                                     </select>
                             </div>
                         </div>
                         <div class="row">
@@ -173,14 +170,11 @@
                                                 <div class="col mb-0">
                                                     <label for="role" class="form-label">Role</label>
                                                     <select name="role" class="form-control">
-                                                        <option value="super_admin" {{ $user->role == 'super_admin' ? 'selected' : '' }}>Super Administrator</option>
-                                                        <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Administrator</option>
-                                                        <option value="taxi_operator" {{ $user->role == 'taxi_operator' ? 'selected' : '' }}>Taxi Operator</option>
-                                                        <option value="driver" {{ $user->role == 'driver' ? 'selected' : '' }}>Driver</option>
-                                                        <option value="driver_assistant" {{ $user->role == 'driver_assistant' ? 'selected' : '' }}>Driver Assistant</option>
-                                                        <option value="rank_marshal" {{ $user->role == 'rank_marshal' ? 'selected' : '' }}>Rank Marshal</option>
-                                                        <option value="route_patrol" {{ $user->role == 'route_patrol' ? 'selected' : '' }}>Route Patrol Officer</option>
-                                                        <option value="hlokomela" {{ $user->role == 'hlokomela' ? 'selected' : '' }}>Law Enforcement (Hlokomela)</option>
+                                                        <option value="super_admin"> Admin</option>
+                                                        <option value="admin"> Employee</option>
+                                                        <option value="taxi_operator"> Advisor Firm Admin</option>
+                                                        <option value="driver"> advisor</option>
+                                                        <option value="driver_assistant"> Member</option>
                                                     </select>
                                                 </div>
                                             </div>
