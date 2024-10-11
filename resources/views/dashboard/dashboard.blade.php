@@ -273,12 +273,7 @@
                     </ul>
                 </li>
 
-                <li class="menu-item">
-                    <a href="modal-examples.html" class="menu-link">
-                        <i class="menu-icon tf-icons ti ti-square"></i>
-                        <div data-i18n="Modal Examples">Modal Examples</div>
-                    </a>
-                </li>
+               
 
             </ul>
         </aside>
