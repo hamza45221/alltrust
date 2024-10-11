@@ -85,10 +85,9 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Date</th>
-                        <th>Role</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -97,12 +96,10 @@
                         <tr>
                             <td>{{$index+1}}</td>
                             <td>
-                                <i class="ti ti-user ti-md text-danger me-4"></i>
-                                <span class="fw-medium">{{$faq->name}}</span>
+{{--                                <i class="ti ti-user ti-md text-danger me-4"></i>--}}
+                                <span class="fw-medium">{{$faq->question}}</span>
                             </td>
-                            <td>{{$faq->email}}</td>
-                            <td>{{ $faq->created_at->format('M d, Y') }}</td>
-                            <td><span class="badge bg-label-primary me-1">{{$faq->role}}</span></td>
+                            <td>{{$faq->answer}}</td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -133,8 +130,15 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col mb-4">
-                                                    <label for="nameBasic" class="form-label">Name</label>
-                                                    <input type="text" value="{{$faq->name}}" name="name" class="form-control" placeholder="Enter Name" />
+                                                    <label for="question" class="form-label">Question</label>
+                                                    <input type="text" name="question" value="{{ $faq->question }}" id="question" class="form-control" placeholder="Enter Question" />
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col mb-4">
+                                                    <label for="answer" class="form-label">Answer</label>
+                                                    <textarea  name="answer" id="answer" class="form-control" placeholder="Enter Answer" >{{ $faq->answer}}</textarea>
                                                 </div>
                                             </div>
 

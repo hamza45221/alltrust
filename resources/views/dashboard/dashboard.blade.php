@@ -246,6 +246,11 @@
                             </a>
                         </li>
                         <li class="menu-item">
+                            <a href="../html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                                <div data-i18n="Support">Support</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
                             <a href="{{ route('faq') }}" class="menu-link" target="_blank">
                                 <div data-i18n="FAQ">FAQ</div>
                             </a>
