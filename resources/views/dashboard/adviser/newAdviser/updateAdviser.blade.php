@@ -42,7 +42,7 @@
                 <div class="col-12">
                     <div id="multiStepsValidation" class="bs-stepper border-none shadow-none mt-5">
                         <div class="bs-stepper-content px-0">
-                            <form id="multiStepsForm" method="POST" action="{{ route('newAdviser-store') }}">
+                            <form id="multiStepsForm" method="POST" action="{{ route('newAdviser-store',$editAdviser) }}">
                                 @csrf
                                 <!-- Adviser Details -->
                                 <div id="adviserDetails" class="content" style="display: block;">
@@ -52,45 +52,45 @@
                                     <div class="row g-6">
                                         <div class="col-md-12">
                                             <label class="form-label" for="selected_adviser">Select Adviser</label>
-                                            <select name="selected_adviser_id" id="selected_adviser" class="form-control">
+                                            <select name="selected_adviser_id"  id="selected_adviser" class="form-control">
                                                 <option value="1">1</option>
                                             </select>
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="company_name">Company Name</label>
-                                            <input type="text" name="company_name" id="company_name" class="form-control" />
+                                            <input type="text" value="{{ $editAdviser->company_name }}" name="company_name" id="company_name" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="trading_names">Trading Name</label>
-                                            <input type="text" name="trading_name" id="trading_name" class="form-control" />
+                                            <input type="text" value="{{ $editAdviser->trading_name }}" name="trading_name" id="trading_name" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="address">Address</label>
-                                            <textarea name="address" id="address" class="form-control" rows="3"></textarea>
+                                            <textarea name="address"  id="address" class="form-control" rows="3"> value="{{ $editAdviser->address }}"</textarea>
                                         </div>
                                         <div class="col-sm-6">
                                             <label class="form-label" for="country">Country</label>
-                                            <input type="text" name="country" id="country" class="form-control" />
+                                            <input type="text" name="country" value="{{ $editAdviser->country }}"  id="country" class="form-control" />
                                         </div>
                                         <div class="col-sm-6">
                                             <label class="form-label" for="postCode">Post Code</label>
-                                            <input type="text" name="post_code" id="postCode" class="form-control" />
+                                            <input type="text" name="post_code" value="{{ $editAdviser->post_code }}"  id="postCode" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="shareholderDetails">Details of Primary Shareholder/Owner</label>
-                                            <input type="text" name="share_holder_details" id="shareholderDetails" class="form-control" />
+                                            <input type="text" name="share_holder_details" value="{{ $editAdviser->share_holder_details }}" id="shareholderDetails" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="regulated_adviser">Number of Regulated Advisers</label>
-                                            <input type="number" name="regulated_adviser" id="regulated_adviser" class="form-control" />
+                                            <input type="number" name="regulated_adviser" value="{{ $editAdviser->regulated_adviser }}" id="regulated_adviser" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="contactEmail">Company Contact Email Address</label>
-                                            <input type="email" name="contact_email" id="contactEmail" class="form-control" />
+                                            <input type="email" name="contact_email" value="{{ $editAdviser->contact_email }}" id="contactEmail" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="website">Website</label>
-                                            <input type="url" name="website" id="website" class="form-control" />
+                                            <input type="url" name="website" value="{{ $editAdviser->website }}" id="website" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="telephone">Telephone Number</label>
