@@ -5,7 +5,7 @@
     class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
     dir="ltr"
     data-theme="theme-default"
-    data-assets-path="public/assets/"
+    data-assets-path="http://localhost/alltrust/public/assets/"
     data-template="vertical-menu-template"
     data-style="light">
 <head>
@@ -19,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="public/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="http://localhost/alltrust/public/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,40 +29,40 @@
         rel="stylesheet" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="public/assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="public/assets/vendor/fonts/tabler-icons.css" />
-    <link rel="stylesheet" href="public/assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
 
-    <link rel="stylesheet" href="public/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="public/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
 
-    <link rel="stylesheet" href="public/assets/css/demo.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="public/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/node-waves/node-waves.css" />
 
-    <link rel="stylesheet" href="public/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="public/assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="public/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="public/assets/vendor/libs/swiper/swiper.css" />
-    <link rel="stylesheet" href="public/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="public/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="public/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
 
     <!-- Page CSS -->
-    <link rel="stylesheet" href="public/assets/vendor/css/pages/cards-advance.css" />
+    <link rel="stylesheet" href="http://localhost/alltrust/public/assets/vendor/css/pages/cards-advance.css" />
 
     <!-- Helpers -->
-    <script src="public/assets/vendor/js/helpers.js"></script>
+    <script src="http://localhost/alltrust/public/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="public/assets/vendor/js/template-customizer.js"></script>
+    <script src="http://localhost/alltrust/public/assets/vendor/js/template-customizer.js"></script>
 
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="public/assets/js/config.js"></script>
+    <script src="http://localhost/alltrust/public/assets/js/config.js"></script>
 
     <style>
 
@@ -138,12 +138,12 @@
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="dashboards-crm.html" class="menu-link">
+                            <a href="{{ route('newAdviser-pending') }}" class="menu-link">
                                 <div data-i18n="Pending Adviser">Pending Adviser </div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="app-ecommerce-dashboard.html" class="menu-link">
+                            <a href="{{ route('newAdviser-existing') }}" class="menu-link">
                                 <div data-i18n="Existing Adviser">Existing Adviser</div>
                             </a>
                         </li>
@@ -467,29 +467,33 @@
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 
-<script src="public/assets/vendor/libs/jquery/jquery.js"></script>
-<script src="public/assets/vendor/libs/popper/popper.js"></script>
-<script src="public/assets/vendor/js/bootstrap.js"></script>
-<script src="public/assets/vendor/libs/node-waves/node-waves.js"></script>
-<script src="public/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="public/assets/vendor/libs/hammer/hammer.js"></script>
-<script src="public/assets/vendor/libs/i18n/i18n.js"></script>
-<script src="public/assets/vendor/libs/typeahead-js/typeahead.js"></script>
-<script src="public/assets/vendor/js/menu.js"></script>
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+
+<script src="http://localhost/alltrust/public/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/popper/popper.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/js/bootstrap.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/node-waves/node-waves.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/hammer/hammer.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/i18n/i18n.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/js/menu.js"></script>
 
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="public/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-<script src="public/assets/vendor/libs/swiper/swiper.js"></script>
-{{--<script src="public/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>--}}
+<script src="http://localhost/alltrust/public/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+<script src="http://localhost/alltrust/public/assets/vendor/libs/swiper/swiper.js"></script>
+{{--<script src="http://localhost/alltrust/public/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>--}}
 
 <!-- Main JS -->
-<script src="public/assets/js/main.js"></script>
-<script src="public/assets/js/pages-auth-multisteps.js"></script>
+<script src="http://localhost/alltrust/public/assets/js/main.js"></script>
+<script src="http://localhost/alltrust/public/assets/js/pages-auth-multisteps.js"></script>
 @yield('script')
 
 {{--<!-- Page JS -->--}}
-{{--<script src="public/assets/js/dashboards-analytics.js"></script>--}}
+{{--<script src="http://localhost/alltrust/public/assets/js/dashboards-analytics.js"></script>--}}
 </body>
 </html>

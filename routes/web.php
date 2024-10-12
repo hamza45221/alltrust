@@ -63,9 +63,13 @@ Route::get('/faq-delete/{id}', [FaqController::class, 'destroy'])->name('faq-del
 
 
 Route::get('/new-adviser', [\App\Http\Controllers\admin\NewAdviserController::class, 'create'])->name('newAdviser');
-Route::any('/new-adviser-view', [\App\Http\Controllers\admin\NewAdviserController::class, 'view'])->name('newAdviser-view');
-Route::any('/new-adviser-edit', [\App\Http\Controllers\admin\NewAdviserController::class, 'edit'])->name('newAdviser-edit');
+
 Route::post('/newAdviser-store', [\App\Http\Controllers\admin\NewAdviserController::class, 'store'])->name('newAdviser-store');
+Route::get('/newAdviser-edit/{id}', [\App\Http\Controllers\admin\NewAdviserController::class, 'edit'])->name('newAdviser-edit');
 Route::post('/newAdviser-update/{id}', [\App\Http\Controllers\admin\NewAdviserController::class, 'update'])->name('newAdviser-update');
 Route::get('/newAdviser-delete/{id}', [\App\Http\Controllers\admin\NewAdviserController::class, 'destroy'])->name('newAdviser-delete');
+
+Route::get('/new-adviser-pending', [\App\Http\Controllers\admin\NewAdviserController::class, 'pending'])->name('newAdviser-pending');
+Route::get('/new-adviser-existing', [\App\Http\Controllers\admin\NewAdviserController::class, 'existing'])->name('newAdviser-existing');
+
 

@@ -28,15 +28,7 @@
     <!-- Content -->
     <div class="authentication-wrapper authentication-cover authentication-bg">
         <div class="authentication-inner row">
-            <div class="card-header flex-column flex-md-row">
-                <div class="dt-action-buttons text-end pt-6 pt-md-0">
-                    <div class="dt-buttons btn-group">
-                        <button class="btn btn-secondary create-new btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#usercreate" type="button">
-                            <span><i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">View Adviser</span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+
             <!-- Multi Steps Registration -->
             <div class="d-flex col-12 align-items-center justify-content-center authentication-bg p-5">
                 <div class="col-12">

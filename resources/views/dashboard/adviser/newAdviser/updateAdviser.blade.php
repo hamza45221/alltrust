@@ -7,17 +7,17 @@
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @elseif(session('error')) <!-- Check for an error session -->
-        <div class="alert alert-danger position-absolute w-75 z-5 right-0 alert-dismissible fade show" style="top: 20px;" role="alert" id="errorAlert">
-            {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        @elseif(session('error'))
+            <div class="alert alert-danger position-absolute w-75 z-5 right-0 alert-dismissible fade show" style="top: 20px;" role="alert" id="errorAlert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
 
         <script>
             // Function to remove alert after 6 seconds
             setTimeout(() => {
-                const alertElement = document.getElementById('successAlert') || document.getElementById('errorAlert'); // Check both alerts
+                const alertElement = document.getElementById('successAlert') || document.getElementById('errorAlert');
                 if (alertElement) {
                     alertElement.classList.remove('show');
                     setTimeout(() => alertElement.remove(), 200);
@@ -29,20 +29,20 @@
     <div class="authentication-wrapper authentication-cover authentication-bg">
         <div class="authentication-inner row">
             <div class="card-header flex-column flex-md-row">
-                <div class="dt-action-buttons text-end pt-6 pt-md-0">
-                    <div class="dt-buttons btn-group">
-                        <button class="btn btn-secondary create-new btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#usercreate" type="button">
-                            <span><i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">View Adviser</span></span>
-                        </button>
-                    </div>
-                </div>
+{{--                <div class="dt-action-buttons text-end pt-6 pt-md-0">--}}
+{{--                    <div class="dt-buttons btn-group">--}}
+{{--                        <button class="btn btn-secondary create-new btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#usercreate" type="button">--}}
+{{--                            <span><i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">View Adviser</span></span>--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <!-- Multi Steps Registration -->
             <div class="d-flex col-12 align-items-center justify-content-center authentication-bg p-5">
                 <div class="col-12">
                     <div id="multiStepsValidation" class="bs-stepper border-none shadow-none mt-5">
                         <div class="bs-stepper-content px-0">
-                            <form id="multiStepsForm" method="POST" action="{{ route('newAdviser-store',$editAdviser) }}">
+                            <form id="multiStepsForm" method="POST" action="{{ route('newAdviser-store', $editAdviser) }}">
                                 @csrf
                                 <!-- Adviser Details -->
                                 <div id="adviserDetails" class="content" style="display: block;">
@@ -52,7 +52,7 @@
                                     <div class="row g-6">
                                         <div class="col-md-12">
                                             <label class="form-label" for="selected_adviser">Select Adviser</label>
-                                            <select name="selected_adviser_id"  id="selected_adviser" class="form-control">
+                                            <select name="selected_adviser_id" id="selected_adviser" class="form-control">
                                                 <option value="1">1</option>
                                             </select>
                                         </div>
@@ -66,15 +66,15 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="address">Address</label>
-                                            <textarea name="address"  id="address" class="form-control" rows="3"> value="{{ $editAdviser->address }}"</textarea>
+                                            <textarea name="address" id="address" class="form-control" rows="3">{{ $editAdviser->address }}</textarea>
                                         </div>
                                         <div class="col-sm-6">
                                             <label class="form-label" for="country">Country</label>
-                                            <input type="text" name="country" value="{{ $editAdviser->country }}"  id="country" class="form-control" />
+                                            <input type="text" name="country" value="{{ $editAdviser->country }}" id="country" class="form-control" />
                                         </div>
                                         <div class="col-sm-6">
                                             <label class="form-label" for="postCode">Post Code</label>
-                                            <input type="text" name="post_code" value="{{ $editAdviser->post_code }}"  id="postCode" class="form-control" />
+                                            <input type="text" name="post_code" value="{{ $editAdviser->post_code }}" id="postCode" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="shareholderDetails">Details of Primary Shareholder/Owner</label>
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="telephone">Telephone Number</label>
-                                            <input type="tel" name="telephone" id="telephone" class="form-control" />
+                                            <input type="tel" name="telephone" value="{{ $editAdviser->telephone }}" id="telephone" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
@@ -103,19 +103,19 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label" for="fca_firms_reference">FCA Firms Reference Number:</label>
-                                            <input type="tel" name="fca_firms_reference" id="fca_firms_reference" class="form-control" />
+                                            <input type="tel" name="fca_firms_reference" value="{{ $editAdviser->fca_firms_reference }}" id="fca_firms_reference" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                                 <label class="form-label" for="directly_Authorised">
-                                                    <input type="checkbox" name="directly_authorised_checked" id="directly_Authorised" />
+                                                    <input type="checkbox" value="1" name="directly_authorised_checked" id="directly_Authorised" {{ $editAdviser->directly_authorised_checked ? 'checked' : '' }} />
                                                     Directly Authorised
                                                 </label>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label" for="appointed_representative">
-                                                    <input type="checkbox" name="appointed_representative_checked" id="appointed_representative" />
+                                                    <input type="checkbox" value="1" name="appointed_representative_checked" id="appointed_representative" {{ $editAdviser->appointed_representative_checked ? 'checked' : '' }} />
                                                     Appointed Representative
                                                 </label>
                                             </div>
@@ -129,124 +129,124 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="principal_comapny_name">Principal Company Name</label>
-                                                    <input type="text" name="principal_comapny_name" id="principal_comapny_name" class="form-control" />
+                                                    <input type="text" name="principal_comapny_name" value="{{ $editAdviser->principal_comapny_name }}" id="principal_comapny_name" class="form-control" />
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="their_frn">Their FRN</label>
-                                                    <input type="text" name="their_frn" id="their_frn" class="form-control" />
+                                                    <input type="text" name="their_frn" value="{{ $editAdviser->their_frn }}" id="their_frn" class="form-control" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <p>Do you advise clients that have overseas connections?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="advice" id="yes" class="" />
+                                                <input type="radio" value="yes" name="advice" id="yes" {{ $editAdviser->advice === 'yes' ? 'checked' : '' }} />
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="advice" id="no" class="" />
+                                                <input type="radio" value="no" name="advice" id="no" {{ $editAdviser->advice === 'no' ? 'checked' : '' }} />
                                                 No
                                             </label>
                                         </div>
 
                                         <div class="col-md-12">
                                             <label class="form-label" for="provide_countries">If yes, please provide countries:</label>
-                                            <textarea name="provide_countries" id="provide_countries" class="form-control"></textarea>
+                                            <textarea name="provide_countries" id="provide_countries" class="form-control">{{ $editAdviser->provide_countries }}</textarea>
                                         </div>
 
                                         <div class="col-md-12">
                                             <label class="form-label" for="hear_about_us">Where did you hear about us?</label>
-                                            <input type="text" name="hear_about_us" id="hear_about_us" class="form-control" />
+                                            <input type="text" name="hear_about_us" value="{{ $editAdviser->hear_about_us }}" id="hear_about_us" class="form-control" />
                                         </div>
 
                                         <p>How do you generate new business? (Please feel free to tick more than one)</p>
                                         <div class="col-md-12">
                                             <label class="form-label" for="word_of_referrals">
-                                                <input type="checkbox" name="word_of_referrals_checked">
+                                                <input type="checkbox" name="word_of_referrals_checked" {{ $editAdviser->word_of_referrals_checked ? 'checked' : '' }}>
                                                 Word of mouth / referrals
                                             </label>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="lead_generation">
-                                                    <input type="checkbox" name="lead_generation_checked">
+                                                    <input type="checkbox" name="lead_generation_checked" {{ $editAdviser->lead_generation_checked ? 'checked' : '' }}>
                                                     Lead generation company, if yes, please specify
                                                 </label>
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="marketing">
-                                                    <input type="checkbox" name="marketing_checked">
+                                                    <input type="checkbox" name="marketing_checked" {{ $editAdviser->marketing_checked ? 'checked' : '' }}>
                                                     Marketing
                                                 </label>
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="other_specify">
-                                                    <input type="checkbox" name="other_specify_checked">
+                                                    <input type="checkbox" name="other_specify_checked" {{ $editAdviser->other_specify_checked ? 'checked' : '' }}>
                                                     Other, if yes, please specify
                                                 </label>
-                                                <input type="text" name="other_specify" id="other_specify" class="form-control" />
+                                                <input type="text" name="other_specify" id="other_specify" value="{{ $editAdviser->other_specify }}" class="form-control" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <p>Do you have restrictions on your permission?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="restrictions_yes_permission" id="yes" class="" />
+                                                <input type="radio" value="yes" name="restrictions_yes_permission" id="yes" {{ $editAdviser->restrictions_yes_permission === 'yes' ? 'checked' : '' }} />
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="restrictions_yes_permission" id="no" class="" />
+                                                <input type="radio" value="no" name="restrictions_yes_permission" id="no" {{ $editAdviser->restrictions_yes_permission === 'no' ? 'checked' : '' }} />
                                                 No
                                             </label>
 
                                             <p>If yes, please provide details:</p>
-                                            <input type="text" name="restrictions_yes_permission_answer" id="hear_about_us" class="form-control" />
+                                            <input type="text" name="restrictions_yes_permission_answer" value="{{ $editAdviser->restrictions_yes_permission_answer }}" id="restrictions_yes_permission_answer" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
                                             <p>Have any sanctions been made against the company historically by any regulatory or official body e.g., HMRC/FCA?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="sanctions" id="yes" class="" />
+                                                <input type="radio" value="yes" name="sanctions" id="yes" {{ $editAdviser->sanctions === 'yes' ? 'checked' : '' }} />
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="sanctions" id="no" class="" />
+                                                <input type="radio" value="no" name="sanctions" id="no" {{ $editAdviser->sanctions === 'no' ? 'checked' : '' }} />
                                                 No
                                             </label>
                                             <label>If yes, please provide details:</label>
-                                            <input type="text" name="sanctions_yes_answer" id="hear_about_us" class="form-control" />
+                                            <input type="text" name="sanctions_yes_answer" value="{{ $editAdviser->sanctions_yes_answer }}" id="sanctions_yes_answer" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
                                             <p>Do you have any connection via people, corporate structures, or premises to any investment firm, product/fund provider, or introducer of business?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="connection_connection" id="yes" />
+                                                <input type="radio" value="yes" name="connection_connection" id="yes" {{ $editAdviser->connection_connection === 'yes' ? 'checked' : '' }} />
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="connection_connection" id="no" />
+                                                <input type="radio" value="no" name="connection_connection" id="no" {{ $editAdviser->connection_connection === 'no' ? 'checked' : '' }} />
                                                 No
                                             </label>
                                             <p>If yes, please provide details:</p>
-                                            <input type="text" name="connection_connection_yes_answer" id="hear_about_us" class="form-control" />
+                                            <input type="text" name="connection_connection_yes_answer" value="{{ $editAdviser->connection_connection_yes_answer }}" id="connection_connection_yes_answer" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
                                             <label class="form-label" for="professional_indemnity_insurance">What level of professional indemnity insurance do you hold?</label>
-                                            <input type="text" name="professional_indemnity_insurance" id="professional_indemnity_insurance" class="form-control" />
+                                            <input type="text" value="{{ $editAdviser->professional_indemnity_insurance }}" name="professional_indemnity_insurance" id="professional_indemnity_insurance" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
                                             <label class="form-label" for="policy_excess_DB">Policy excess DB transfer £</label>
-                                            <input type="text" name="policy_excess_DB" id="policy_excess_DB" class="form-control" />
+                                            <input type="text" value="{{ $editAdviser->policy_excess_DB }}" name="policy_excess_DB" id="policy_excess_DB" class="form-control" />
                                         </div>
 
                                         <div class="col-md-12">
                                             <p>Do you have separate Cyber Security insurance?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="separate_cyber_security" id="yes" />
+                                                <input type="radio" value="yes" name="separate_cyber_security" id="yes" {{ $editAdviser->separate_cyber_security === 'yes' ? 'checked' : '' }} />
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="separate_cyber_security" id="no" />
+                                                <input type="radio" value="no" name="separate_cyber_security" id="no" {{ $editAdviser->separate_cyber_security === 'no' ? 'checked' : '' }} />
                                                 No
                                             </label>
                                         </div>
@@ -254,11 +254,11 @@
                                         <div class="col-md-12">
                                             <p>Do you hold permissions for advising on defined benefit (DB) transfers?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="permissions_for_advising" id="yes" />
+                                                <input type="radio" value="yes" name="permissions_for_advising" id="yes" {{ $editAdviser->permissions_for_advising === 'yes' ? 'checked' : '' }} />
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="permissions_for_advising" id="no" />
+                                                <input type="radio" value="no" name="permissions_for_advising" id="no" {{ $editAdviser->permissions_for_advising === 'no' ? 'checked' : '' }} />
                                                 No
                                             </label>
                                         </div>
@@ -284,19 +284,19 @@
                                     <div class="row g-6">
                                         <div class="col-md-6">
                                             <label class="form-label" for="initial_advice_fee">Initial Advice Fee</label>
-                                            <input type="text" name="initial_advice_fee" id="initial_advice_fee" class="form-control" />
+                                            <input type="text" name="initial_advice_fee" value="{{ $editAdviser->initial_advice_fee }}" id="initial_advice_fee" class="form-control" />
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="going_Annual_fee">Ongoing Annual Management Fee</label>
-                                            <input type="text" name="going_annual_fee" id="going_Annual_fee" class="form-control" />
+                                            <input type="text" name="going_annual_fee" value="{{ $editAdviser->going_annual_fee }}" id="going_Annual_fee" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="house_portfolio_solutions">In-House Model Portfolio Solutions</label>
-                                            <input type="text" name="house_portfolio_solutions" id="house_portfolio_solutions" class="form-control" />
+                                            <input type="text" name="house_portfolio_solutions" value="{{ $editAdviser->house_portfolio_solutions }}" id="house_portfolio_solutions" class="form-control" />
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="receive_provider_commission">Do you receive any provider commissions?</label>
-                                            <input type="text" name="receive_provider_commission" id="receive_provider_commission" class="form-control" />
+                                            <input type="text" name="receive_provider_commission" value="{{ $editAdviser->receive_provider_commission }}" id="receive_provider_commission" class="form-control" />
                                         </div>
                                         <div class="col-12 d-flex justify-content-between">
                                             <button class="btn btn-label-secondary btn-prev">
@@ -312,7 +312,7 @@
                                 </div>
 
                                 <!-- Investment -->
-                                <div id="personalInfoValidation" class="content" style="display: none;">
+                                <div id="investmentStrategy" class="content" style="display: none;">
                                     <div class="content-header mb-6">
                                         <h4 class="mb-0">Investment Strategy</h4>
                                     </div>
@@ -355,8 +355,8 @@
                                                 <label for="restrictedMassMarket">Restricted Mass Market Investments</label>
                                             </div>
                                             <div>
-                                                <input type="checkbox" id="structuredeposit" name="investmentStrategy[]" value="Structure Deposit" />
-                                                <label for="structuredeposit">Structure Deposit</label>
+                                                <input type="checkbox" id="structureDeposit" name="investmentStrategy[]" value="Structure Deposit" />
+                                                <label for="structureDeposit">Structure Deposit</label>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -389,19 +389,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="principalCompanyName1">Principal Company Name</label>
-                                            <input type="text" name="principal_company_name1" id="principalCompanyName1" class="form-control" />
+                                            <input type="text" value="{{ $editAdviser->principal_company_name1 }}" name="principal_company_name1" id="principalCompanyName1" class="form-control" />
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="principalCompanyName2">Principal Company Name</label>
-                                            <input type="text" name="principal_company_name2" id="principalCompanyName2" class="form-control" />
+                                            <input type="text" value="{{ $editAdviser->principal_company_name2 }}" name="principal_company_name2" id="principalCompanyName2" class="form-control" />
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="principalCompanyName3">Principal Company Name</label>
-                                            <input type="text" name="principal_company_name3" id="principalCompanyName3" class="form-control" />
+                                            <input type="text" name="principal_company_name3" value="{{ $editAdviser->principal_company_name3 }}" id="principalCompanyName3" class="form-control" />
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="principalCompanyName4">Principal Company Name</label>
-                                            <input type="text" name="principal_company_name4" id="principalCompanyName4" class="form-control" />
+                                            <input type="text" name="principal_company_name4" value="{{ $editAdviser->principal_company_name4 }}" id="principalCompanyName4" class="form-control" />
                                         </div>
 
                                         <div class="col-12 d-flex justify-content-between">
@@ -423,35 +423,33 @@
                                         <h4 class="mb-0">Bank Details</h4>
                                     </div>
                                     <div class="row g-6">
-                                        <div class="row g-6">
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="accountName">Account Name</label>
-                                                <input type="text" name="account_name" id="accountName" class="form-control" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="bankName">Bank Name</label>
-                                                <input type="text" name="bank_name" id="bankName" class="form-control" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="accountNumber">Account Number</label>
-                                                <input type="text" name="account_number" id="accountNumber" class="form-control" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="sort_code">Sort Code</label>
-                                                <input type="text" name="sort_code" id="sort_code" class="form-control" />
-                                            </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="accountName">Account Name</label>
+                                            <input type="text" name="account_name" value="{{ $editAdviser->account_name }}" id="accountName" class="form-control" />
                                         </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="bankName">Bank Name</label>
+                                            <input type="text" name="bank_name" value="{{ $editAdviser->bank_name }}" id="bankName" class="form-control" />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="accountNumber">Account Number</label>
+                                            <input type="text" name="account_number" value="{{ $editAdviser->account_number }}" id="accountNumber" class="form-control" />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="sort_code">Sort Code</label>
+                                            <input type="text" name="sort_code" value="{{ $editAdviser->sort_code }}" id="sort_code" class="form-control" />
+                                        </div>
+                                    </div>
 
-                                        <div class="col-12 d-flex justify-content-between">
-                                            <button class="btn btn-label-secondary btn-prev">
-                                                <i class="ti ti-arrow-left ti-xs me-sm-2 me-0"></i>
-                                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                            </button>
-                                            <button type="button" class="btn btn-primary btn-next">
-                                                <span class="align-middle d-sm-inline-block d-none me-sm-1 me-0">Next</span>
-                                                <i class="ti ti-arrow-right ti-xs"></i>
-                                            </button>
-                                        </div>
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <button class="btn btn-label-secondary btn-prev">
+                                            <i class="ti ti-arrow-left ti-xs me-sm-2 me-0"></i>
+                                            <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-next">
+                                            <span class="align-middle d-sm-inline-block d-none me-sm-1 me-0">Next</span>
+                                            <i class="ti ti-arrow-right ti-xs"></i>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -470,12 +468,12 @@
 
                                         <div class="col-md-12">
                                             <p>How many advisers within your business are permitted to advise on DB transfers?</p>
-                                            <input type="text" name="advisers_permitted" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->advisers_permitted }}" name="advisers_permitted" class="form-control">
                                         </div>
 
                                         <div class="col-md-12">
                                             <p>How many members of staff provide a supervisory position in relation to DB transfers?</p>
-                                            <input type="text" name="staff_supervisory_position" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->staff_supervisory_position }}" name="staff_supervisory_position" class="form-control">
                                         </div>
 
                                         <div class="col-md-12">
@@ -497,66 +495,66 @@
                                         <h5>Please confirm the number of DB transfers your firm has made in the previous 12, 24, and 36-month periods:</h5>
                                         <div>
                                             <label>Number in previous 12 months:</label>
-                                            <input type="text" name="db_transfers_12_months" class="form-control">
+                                            <input type="text" name="db_transfers_12_months" value="{{ $editAdviser->db_transfers_12_months }}" class="form-control">
                                             <label>Total value £:</label>
-                                            <input type="text" name="total_value_12_months" class="form-control">
+                                            <input type="text" name="total_value_12_months" value="{{ $editAdviser->total_value_12_months }}" class="form-control">
                                             <label>DB transfers as a % of all transfers:</label>
-                                            <input type="text" name="percentage_db_transfers_12_months" class="form-control">
+                                            <input type="text" name="percentage_db_transfers_12_months" value="{{ $editAdviser->percentage_db_transfers_12_months }}" class="form-control">
                                         </div>
 
                                         <div>
                                             <label>Number in previous 24 months:</label>
-                                            <input type="text" name="db_transfers_24_months" class="form-control">
+                                            <input type="text" name="db_transfers_24_months" value="{{ $editAdviser->db_transfers_24_months }}" class="form-control">
                                             <label>Total value £:</label>
-                                            <input type="text" name="total_value_24_months" class="form-control">
+                                            <input type="text" name="total_value_24_months" value="{{ $editAdviser->total_value_24_months }}" class="form-control">
                                             <label>DB transfers as a % of all transfers:</label>
-                                            <input type="text" name="percentage_db_transfers_24_months" class="form-control">
+                                            <input type="text" name="percentage_db_transfers_24_months" value="{{ $editAdviser->percentage_db_transfers_24_months }}" class="form-control">
                                         </div>
 
                                         <div>
                                             <label>Number in previous 36 months:</label>
-                                            <input type="text" name="db_transfers_36_months" class="form-control">
+                                            <input type="text" name="db_transfers_36_months" value="{{ $editAdviser->db_transfers_36_months }}" class="form-control">
                                             <label>Total value £:</label>
-                                            <input type="text" name="total_value_36_months" class="form-control">
+                                            <input type="text" name="total_value_36_months" value="{{ $editAdviser->total_value_36_months }}" class="form-control">
                                             <label>DB transfers as a % of all transfers:</label>
-                                            <input type="text" name="percentage_db_transfers_36_months" class="form-control">
+                                            <input type="text" name="percentage_db_transfers_36_months" value="{{ $editAdviser->percentage_db_transfers_36_months }}" class="form-control">
                                         </div>
 
                                         <h5>Number of complaints in relation to the DB transfer advice in the previous 12, 24, and 36-month periods:</h5>
                                         <div>
                                             <label>Number in previous 12 months:</label>
-                                            <input type="text" name="complaints_12_months" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->complaints_12_months }}" name="complaints_12_months" class="form-control">
                                             <label>Number of cases on which redress was offered:</label>
-                                            <input type="text" name="redress_cases_12_months" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->redress_cases_12_months }}" name="redress_cases_12_months" class="form-control">
                                         </div>
 
                                         <div>
                                             <label>Number in previous 24 months:</label>
-                                            <input type="text" name="complaints_24_months" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->complaints_24_months }}" name="complaints_24_months" class="form-control">
                                             <label>Number of cases on which redress was offered:</label>
-                                            <input type="text" name="redress_cases_24_months" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->redress_cases_24_months }}" name="redress_cases_24_months" class="form-control">
                                         </div>
 
                                         <div>
                                             <label>Number in previous 36 months:</label>
-                                            <input type="text" name="complaints_36_months" class="form-control">
+                                            <input type="text" name="complaints_36_months" value="{{ $editAdviser->complaints_36_months }}" class="form-control">
                                             <label>Number of cases on which redress was offered:</label>
-                                            <input type="text" name="redress_cases_36_months" class="form-control">
+                                            <input type="text" name="redress_cases_36_months" value="{{ $editAdviser->redress_cases_36_months }}" class="form-control">
                                         </div>
 
                                         <div class="col-md-12 mt-4">
                                             <p>What percentage of your DB transfers over the last 12 months were to allow members to immediately access their pension benefits via pension freedoms?</p>
-                                            <input type="text" name="percentage_db_transfers" class="form-control">
+                                            <input type="text" name="percentage_db_transfers" value="{{ $editAdviser->percentage_db_transfers }}" class="form-control">
                                         </div>
 
                                         <div class="col-md-12 mt-4">
                                             <p>Is your Pension Transfer Specialist internal or external?</p>
                                             <label>
-                                                <input type="radio" value="internal" name="pension_specialist" id="pension_specialist_internal">
+                                                <input type="radio" value="{{ $editAdviser->internal }}" name="pension_specialist" id="pension_specialist_internal">
                                                 Internal
                                             </label>
                                             <label>
-                                                <input type="radio" value="external" name="pension_specialist" id="pension_specialist_external">
+                                                <input type="radio" value="{{ $editAdviser->external }}" name="pension_specialist" id="pension_specialist_external">
                                                 External
                                             </label>
                                         </div>
@@ -564,41 +562,41 @@
                                         <div class="col-md-12 mt-4">
                                             <p>If internal, do you act as "Pension Transfer Specialist" for other FCA regulated firms?</p>
                                             <label>
-                                                <input type="radio" value="yes" name="act_as_specialist" id="act_as_specialist_yes">
+                                                <input type="radio" value="{{ $editAdviser->act_as_specialist }}" name="act_as_specialist" id="act_as_specialist_yes">
                                                 Yes
                                             </label>
                                             <label>
-                                                <input type="radio" value="no" name="act_as_specialist" id="act_as_specialist_no">
+                                                <input type="radio" value="{{ $editAdviser->act_as_specialist }}" name="act_as_specialist" id="act_as_specialist_no">
                                                 No
                                             </label>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
                                             <p>If yes, please provide details of firms:</p>
-                                            <textarea name="details_of_firms" class="form-control"></textarea>
+                                            <textarea name="details_of_firms" class="form-control">{{ $editAdviser->details_of_firms }}</textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
                                             <p>If external, please provide contact details for your Pension Transfer Specialist:</p>
                                             <label>Contact Name:</label>
-                                            <input type="text" name="contact_name" class="form-control">
+                                            <input type="text" name="contact_name" value="{{ $editAdviser->contact_name }}" class="form-control">
                                             <label>Email Address:</label>
-                                            <input type="email" name="email_address" class="form-control">
+                                            <input type="email" name="email_address" value="{{ $editAdviser->email_address }}" class="form-control">
                                             <label>Phone Number:</label>
-                                            <input type="text" name="phone_number" class="form-control">
+                                            <input type="text" name="phone_number" value="{{ $editAdviser->phone_number }}" class="form-control">
                                             <label>Dial Code:</label>
-                                            <input type="text" name="dial_code" class="form-control">
+                                            <input type="text" name="dial_code" value="{{ $editAdviser->dial_code }}" class="form-control">
                                         </div>
 
                                         <!-- New Investment Strategy Section -->
                                         <div class="col-md-12 mt-4">
                                             <p>What is a typical investment strategy for a DB transfer i.e. DFM / Platform and with whom?</p>
-                                            <textarea name="investment_strategy" class="form-control"></textarea>
+                                            <textarea name="investment_strategy" class="form-control">{{ $editAdviser->investment_strategy }}</textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
                                             <p>What is the minimum CETV you would normally consider appropriate for a transfer into a Pension Scheme?</p>
-                                            <input type="text" name="minimum_cetv" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->minimum_cetv }}" name="minimum_cetv" class="form-control">
                                         </div>
 
                                         <div class="col-md-12 mt-4">
@@ -651,18 +649,18 @@
 
                                         <div class="col-md-12 mt-4">
                                             <p>If yes, please provide details:</p>
-                                            <textarea name="referral_details" class="form-control"></textarea>
+                                            <textarea name="referral_details" class="form-control">{{ $editAdviser->referral_details }}</textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
                                             <p>What percentage of your DB transfer business does this make up?</p>
-                                            <input type="text" name="db_transfer_percentage" class="form-control">
+                                            <input type="text" value="{{ $editAdviser->db_transfer_percentage }}" name="db_transfer_percentage" class="form-control">
                                         </div>
 
                                         <!-- New Questions -->
                                         <div class="col-md-12 mt-4">
                                             <p>How do you source your DB clients?</p>
-                                            <textarea name="db_client_source" class="form-control"></textarea>
+                                            <textarea name="db_client_source" value="{{ $editAdviser->db_client_source }}" class="form-control"></textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
@@ -679,7 +677,7 @@
 
                                         <div class="col-md-12 mt-4">
                                             <p>If yes, please provide details:</p>
-                                            <textarea name="trustee_relationship_details" class="form-control"></textarea>
+                                            <textarea name="trustee_relationship_details" class="form-control">{{ $editAdviser->trustee_relationship_details }}</textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
@@ -696,7 +694,7 @@
 
                                         <div class="col-md-12 mt-4">
                                             <p>If yes, please specify what contingent charging is used:</p>
-                                            <textarea name="contingent_charging_details" class="form-control"></textarea>
+                                            <textarea name="contingent_charging_details" class="form-control">{{ $editAdviser->contingent_charging_details }}</textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-4">
@@ -725,7 +723,7 @@
 
                                         <div class="col-md-12 mt-4">
                                             <p>Please provide a breakdown of the typical charging structure of a personal recommendation to transfer out a DB Pension to either a SIPP or a SSAS (including the investment costs once transferred):</p>
-                                            <textarea name="charging_structure_breakdown" class="form-control"></textarea>
+                                            <textarea name="charging_structure_breakdown" class="form-control">{{ $editAdviser->charging_structure_breakdown }}</textarea>
                                         </div>
 
                                         <div class="col-12 d-flex justify-content-between">
@@ -742,7 +740,7 @@
                                 </div>
 
                                 <!-- Policies & Financial Crime -->
-                                <div id="polocoesCrime" class="content" style="display: none;">
+                                <div id="policiesCrime" class="content" style="display: none;">
                                     <div class="content-header mb-6">
                                         <h4 class="mb-0">Policies & Financial Crime</h4>
                                     </div>
@@ -757,7 +755,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="notCoveredDetails">Please provide details of what is not covered by your policies:</label>
-                                            <textarea name="not_covered_details" id="notCoveredDetails" class="form-control" rows="3"></textarea>
+                                            <textarea name="not_covered_details" id="notCoveredDetails" class="form-control" rows="3">{{ $editAdviser->not_covered_details }}</textarea>
                                         </div>
 
                                         <div class="col-md-12 mt-3">
@@ -765,15 +763,15 @@
                                             <div class="d-flex">
                                                 <div class="me-2">
                                                     <label for="highRisk">High %</label>
-                                                    <input type="text" name="high_risk" id="highRisk" class="form-control" />
+                                                    <input type="text" name="high_risk" value="{{ $editAdviser->high_risk }}" id="highRisk" class="form-control" />
                                                 </div>
                                                 <div class="me-2">
                                                     <label for="standardRisk">Standard %</label>
-                                                    <input type="text" name="standard_risk" id="standardRisk" class="form-control" />
+                                                    <input type="text" name="standard_risk" value="{{ $editAdviser->standard_risk }}" id="standardRisk" class="form-control" />
                                                 </div>
                                                 <div>
                                                     <label for="lowRisk">Low %</label>
-                                                    <input type="text" id="low_risk" class="form-control" />
+                                                    <input type="text" id="low_risk" name="low_risk" value="{{ $editAdviser->low_risk }}" class="form-control" />
                                                 </div>
                                             </div>
                                         </div>
@@ -810,7 +808,7 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label">If yes, please provide details of what is collected:</label>
-                                            <textarea name="add_details_text" id="add_details_text" class="form-control" rows="3"></textarea>
+                                            <textarea name="add_details_text" id="add_details_text" class="form-control" rows="3">{{ $editAdviser->add_details_text }}</textarea>
                                         </div>
 
                                         <div class="col-md-12">
@@ -825,7 +823,7 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label" for="reviewFrequency">How often are these policies revisited and reviewed?</label>
-                                            <input type="text" name="review_frequency" id="reviewFrequency" class="form-control" />
+                                            <input type="text" name="review_frequency" value="{{ $editAdviser->review_frequency }}" id="reviewFrequency" class="form-control" />
                                         </div>
 
                                         <div class="col-12 d-flex justify-content-between">
@@ -1141,7 +1139,5 @@
             });
         });
     </script>
-
-
 
 @endsection

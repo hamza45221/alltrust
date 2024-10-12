@@ -8,17 +8,13 @@ use Illuminate\Http\Request;
 
 class NewAdviserController extends Controller
 {
-    public function view()
-    {
 
-        $advisers = Advisers::all();
-        return view('dashboard.adviser.newAdviser.viewAdviser',compact('advisers'));
-    }
     public function create()
     {
         return view('dashboard.adviser.newAdviser.newAdviser');
 
     }
+
     public function store(Request $request)
     {
 
@@ -119,7 +115,7 @@ class NewAdviserController extends Controller
         $adviser->save();
 
         // Return a response
-        return redirect(route('newAdviser-view'))->with('success','Adviser Added Successsfully...');
+        return redirect(route('newAdviser-pending'))->with('success','Adviser Added Successsfully...');
     }
 
 
@@ -226,7 +222,23 @@ class NewAdviserController extends Controller
         $adviser->update();
 
         // Return a response
-        return redirect(route('newAdviser-view'))->with('success','Adviser Update Successsfully...');
+        return redirect(route('newAdviser-pending'))->with('success','Adviser Update Successsfully...');
     }
 
+
+    public  function existing()
+    {
+
+        $existingAdviser = Advisers::where('status', 'active')->get();
+        return view('dashboard.adviser.newAdviser.existingAdviser',compact('existingAdviser'));
+
+    }
+
+
+    public function pending()
+    {
+
+        $advisers = Advisers::where('status', 'pending')->get();
+        return view('dashboard.adviser.newAdviser.pendingAdviser',compact('advisers'));
+    }
 }

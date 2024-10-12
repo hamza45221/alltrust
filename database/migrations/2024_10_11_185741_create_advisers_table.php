@@ -152,6 +152,7 @@ return new class extends Migration
             $table->text('adviser_email')->nullable();
             $table->text('branch')->nullable();
             $table->text('requires_online_access')->nullable();
+            $table->enum('status',['pending','active'])->default('pending');
 
             $table->timestamps();
         });
