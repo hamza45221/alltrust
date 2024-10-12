@@ -133,7 +133,7 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item ">
-                            <a href="index.html" class="menu-link">
+                            <a href="{{ route('newAdviser-view') }}" class="menu-link">
                                 <div data-i18n="New Adviser">New Adviser</div>
                             </a>
                         </li>
@@ -486,6 +486,7 @@
 
 <!-- Main JS -->
 <script src="public/assets/js/main.js"></script>
+<script src="public/assets/js/pages-auth-multisteps.js"></script>
 @yield('script')
 
 {{--<!-- Page JS -->--}}

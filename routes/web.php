@@ -61,3 +61,10 @@ Route::post('/faq-store', [FaqController::class, 'store'])->name('faq-store');
 Route::post('/faq-update/{id}', [FaqController::class, 'update'])->name('faq-update');
 Route::get('/faq-delete/{id}', [FaqController::class, 'destroy'])->name('faq-delete');
 
+
+Route::get('/new-adviser', [\App\Http\Controllers\admin\NewAdviserController::class, 'index'])->name('newAdviser');
+Route::any('/new-adviser-view', [\App\Http\Controllers\admin\NewAdviserController::class, 'view'])->name('newAdviser-view');
+Route::post('/newAdviser-store', [\App\Http\Controllers\admin\NewAdviserController::class, 'store'])->name('newAdviser-store');
+Route::post('/newAdviser-update/{id}', [\App\Http\Controllers\admin\NewAdviserController::class, 'update'])->name('newAdviser-update');
+Route::get('/newAdviser-delete/{id}', [\App\Http\Controllers\admin\NewAdviserController::class, 'destroy'])->name('newAdviser-delete');
+
